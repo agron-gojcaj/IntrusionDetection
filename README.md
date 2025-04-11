@@ -1,28 +1,53 @@
-# 🚨 Intrusion Detection System (IDS) using PyTorch
+🚨 Intrusion Detection System (IDS) using PyTorch & Scikit-learn
+This project implements an Intrusion Detection System (IDS) using the NSL-KDD dataset, a benchmark dataset for evaluating network-based intrusion detection models. The system combines both deep learning (PyTorch) and machine learning (scikit-learn) models for comparative analysis.
 
-This project implements a deep learning-based Intrusion Detection System (IDS) using the **NSL-KDD dataset**, a widely used benchmark for evaluating intrusion detection models.
+📁 Dataset
+The project uses the processed kdd_train.csv and kdd_test.csv versions of the NSL-KDD dataset, containing 42 features per instance (both numerical and categorical).
 
-The model is trained to classify network connections as either **normal** or **malicious (attack)** using a **binary classification** approach with **PyTorch**.
+Target variable: normal (label 0) or attack (label 1)
 
----
+Categorical features are label-encoded
 
-## 📁 Dataset
+Features are scaled using MinMaxScaler
 
-The project uses the `kdd_train.csv` and `kdd_test.csv` versions of the NSL-KDD dataset, with 42 features including both numeric and categorical attributes.
+🔗 Original dataset available from the NSL-KDD Repository
 
-- Download the original dataset from [NSL-KDD Repository](https://www.unb.ca/cic/datasets/nsl.html) or use the included CSV files.
+🧠 Models Included
+1. SimpleNN (PyTorch)
+Feedforward neural network:
 
----
+Input layer (41 features)
 
-## 🧠 Model Overview
+Two hidden layers with ReLU activation and Dropout
 
-The model is a **feedforward neural network** with:
+Output layer with Sigmoid activation for binary classification
 
-- Input Layer (41 features)
-- Two Hidden Layers with ReLU activation and Dropout
-- Output Layer with Sigmoid activation (for binary classification)
+2. Random Forest Classifier (Scikit-learn)
+Ensemble-based traditional classifier
 
----
+Handles both categorical and numerical data
+
+Fast and accurate for tabular data
+
+3. Support Vector Machine (SVM) (Scikit-learn)
+Kernel-based classifier
+
+Trained on a subset of the dataset due to computational cost
+
+Effective in high-dimensional spaces
+
+📊 Evaluation Metrics
+For each model, the following metrics are computed:
+
+Accuracy
+
+Precision
+
+Recall
+
+F1-Score
+
+Bar plots are generated to visually compare model performance across these metrics.
 
 ## 🧪 Requirements
 
